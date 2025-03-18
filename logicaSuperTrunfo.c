@@ -1,43 +1,113 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+#include <string.h>
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
 
+    // VARIAVEIS
+    char ufEstado[4];
+    char codigoCarta[5];
+    char nomeCidade[25];
+    int populacao;
+    float area_cidade;
+    float PIB;
+    int pontos_turistico;
     
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    char ufEstado2[4];
+    char codigoCarta2[5];
+    char nomeCidade2[25];
+    int populacao2;
+    float area_cidade2;
+    float PIB2;
+    int pontos_turistico2;
+    
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    printf("SUPER TRUNFO!\n");
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // CADASTRAMENTO 1° CARTA
+    printf("CADASTRE A 1° CARTA\n");    
+    printf("Digite o UF do Estado: \n");
+    fgets(ufEstado, 4, stdin);
+    ufEstado[strcspn(ufEstado, "\n")] = 0; // remove \n
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    printf("Digite codigo da carta: \n");
+    fgets(codigoCarta, 5, stdin);
+    codigoCarta[strcspn(codigoCarta, "\n")] = 0; // remove \n
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    printf("Digite nome da cidade: \n");
+    fgets(nomeCidade, 25, stdin);
+    nomeCidade[strcspn(nomeCidade, "\n")] = 0; // remove \n
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    printf("Digite quantidade populacional: \n");
+    scanf("%d", &populacao);
 
-    return 0;
+    printf("Digite Área da Cidade: \n");
+    scanf("%f", &area_cidade);
+
+    printf("Digite o PIB: \n");
+    scanf("%f", &PIB);
+
+    printf("Digite Pontos Turisticos: \n");
+    scanf("%d", &pontos_turistico);
+    getchar();
+
+    // CADASTRAMENTO 2° CARTA
+    printf("\nSPCADASTRE A 2° CARTA\n");
+    
+    printf("Digite o UF do Estado: \n");
+    fgets(ufEstado2, 4, stdin);
+    ufEstado2[strcspn(ufEstado2, "\n")] = 0; // remove \n
+
+    printf("Digite codigo da carta: \n");
+    fgets(codigoCarta2, 5, stdin);
+    codigoCarta2[strcspn(codigoCarta2, "\n")] = 0; // remove \n
+
+    printf("Digite nome da cidade: \n");
+    fgets(nomeCidade2, 25, stdin);
+    nomeCidade2[strcspn(nomeCidade2, "\n")] = 0; // remove \n
+
+    printf("Digite quantidade populacional: \n");
+    scanf("%d", &populacao2);
+
+    printf("Digite Área da Cidade: \n");
+    scanf("%f", &area_cidade2);
+
+    printf("Digite o PIB: \n");
+    scanf("%f", &PIB2);
+
+    printf("Digite Pontos Turisticos: \n");
+    scanf("%d", &pontos_turistico2);
+
+    //EXIBE DADOS CARTA 2 (1° carta)
+    printf("DADOS CARTA 1\n");
+    printf("1° Codigo Carta: %s", codigoCarta);
+    printf("1° Estado  %s", ufEstado);
+    printf("1° Cidade: %s", nomeCidade);
+    printf("1° População: %i", populacao);
+    printf("1° Área: %.2f\n", area_cidade);
+    printf("1° PIB: %.2f\n", PIB);
+    printf("1° Pontos Turisticos: %d\n", pontos_turistico);
+    float densidade = populacao / area_cidade;
+    float PIBper = PIB / populacao;
+    printf("1° Densidade Populacional: %f\n", densidade);
+    printf("2° PIB per capita: %f\n\n", PIBper);
+
+    //EXIBE DADOS CARTA 2 (2° carta)
+    printf("DADOS CARTA 1\n");
+    printf("2° Codigo Carta: %s", codigoCarta2);
+    printf("2° Estado  %s", ufEstado2);
+    printf("2° Cidade: %s", nomeCidade2);;
+    printf("2° População: %i\n", populacao2);
+    printf("2° Área: %.2f\n", area_cidade2);
+    printf("2° PIB: %.2f\n", PIB);
+    printf("2° Pontos Turisticos: %d\n", pontos_turistico2);
+    float densidade2 = populacao2 / area_cidade2;
+    float PIBper2 = PIB / populacao2;
+    printf("2° Densidade Populacional: %f\n", densidade2);
+    printf("2° PIB per capita: %f\n\n", PIBper2);
+
+    //ESTRUTURA DE DECISÃO RESULTADO
+    if(populacao > populacao2){
+        printf("COMPARAÇÃO DE CARTAS - ATRIBUTO: POPULAÇÃO\n");
+        printf("CARTA 1 VENCEU - %s (%s): %d\n", nomeCidade, ufEstado, populacao);
+    }
 }
